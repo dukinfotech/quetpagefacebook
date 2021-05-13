@@ -1,0 +1,15 @@
+Hướng dẫn cài đặt
+
+B1: Chạy command "composer install"
+B2: Tạo app key: "php artisan key:generate"
+B3: Sửa APP_URL trong file .env
+B4: Tạo shortcut thư mục laravel filemanager: "php artisan storage:link"
+B4: Clear cache: "php artisan cache:clear"
+B5: Cache: "php artisan cache:clear"
+B6: Chạy command: "php artisan migrate:fresh --seed"
+
+
+--------------------------------
+Mặc định sẽ có 1 account của Super Admin là: admin@email.com/@12345678 và 1 account của Teacher là: teacher@email.com/@12345678
+Mặc định sẽ có 2 role là Super Admin và Teacher (Ngoài Super Admin thì chỉ có các user có role là Teacher mới truy cập được Dashboard)
+=> Các user sau khi đăng ký sẽ ko truy cập được vào Dashboard cho đến khi Super Admin gán quyền (chưa có tính năng này)
