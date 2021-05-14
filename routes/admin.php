@@ -10,4 +10,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::put('/users/{id}', [UserController::class, 'update']);
     Route::put('/users/{id}/update-status', [UserController::class, 'updateStatus']);
     Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+    Route::get('/change-password', [UserController::class, 'changePassword']);
+    Route::put('/update-password', [UserController::class, 'updatePassword']);
 });

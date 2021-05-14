@@ -91,4 +91,22 @@ class UserController extends Controller
 
         return true;
     }
+
+    public function changePassword()
+    {
+        return view('users/change_password');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $current_password = $request->current_password;
+        $new_password = $request->new_password;
+        
+        if (! Hash::check($current_password, auth()->user()->password)) {
+            return back()->withErrors(['msg' => 'Mật khẩu hiện tại không chính xác.']);
+        }
+
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($new_password)]);
+        return back()->withSuccess('Đổi mật khẩu thành công.');
+    }
 }

@@ -32,6 +32,14 @@
 						</p>
 					</a>
 				</li>
+				<li class="nav-item">
+					<a href="/admin/change-password" class="nav-link">
+						<i class="nav-icon fas fa-key"></i>
+						<p>
+							Đổi mật khẩu
+						</p>
+					</a>
+				</li>
 			</ul>
 		</nav>
 		<!-- /.sidebar-menu -->

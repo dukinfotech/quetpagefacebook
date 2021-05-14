@@ -69,4 +69,47 @@ $(document).ready(function() {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
+
+  // Validate user form
+  $('#change-password-form').validate({
+    rules: {
+      current_password: {
+        required: true,
+      },
+      new_password: {
+        required: true,
+      },
+      confirm_new_password: {
+        required: true,
+        equalTo : "#new_password"
+      },
+    },
+    messages: {
+      current_password: {
+        required: 'Nhập mật khẩu hiện tại.',
+      },
+      new_password: {
+        required: 'Nhập mật khẩu mới.',
+      },
+      confirm_new_password: {
+        required: 'Xác nhận mật khẩu mới.',
+        equalTo: 'Xác nhận mật khẩu mới không chính xác.s'
+      },
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      if (element.is("textarea")) {
+        error.insertAfter(element.next());
+      } else {
+        element.closest('.form-group').append(error);
+      }
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
 });
