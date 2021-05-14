@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +15,4 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::post('/users/login', [UserController::class, 'login']);
+
