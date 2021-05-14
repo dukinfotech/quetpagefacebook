@@ -67,7 +67,7 @@ class UserController extends Controller
         $user->save();
     }
 
-    public function login(Request $request)
+    public function authenticate(Request $request)
     {
         $email = $request->email;
         $password = $request->password;
