@@ -123,6 +123,6 @@ class UserController extends Controller
 
     private function generateToken()
     {
-        return Str::random(32);
+        return md5(rand(1, 10) . microtime());
     }
 }
