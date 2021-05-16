@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->text('note')->nullable();
             $table->boolean('is_active')->default(false);
             $table->boolean('is_admin')->default(false);
-            $table->text('access_token')->nullable()->unique();
+            $table->string('access_token')->nullable()->unique();
             $table->rememberToken();
             $table->timestamps();
         });
