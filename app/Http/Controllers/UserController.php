@@ -6,6 +6,7 @@ use App\Http\Requests\UserFormRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -81,14 +82,17 @@ class UserController extends Controller
         ])->first();
 
         if (!$user) {
-            abort(401);
+            abort(404);
         }
 
         if (! Hash::check($password, $user->password)) {
             abort(401);
         }
 
-        return $email;
+        $user->access_token = $this->generateToken();
+        $user->save();
+
+        return $user->access_token;
     }
 
     public function changePassword()
@@ -109,10 +113,16 @@ class UserController extends Controller
         return back()->withSuccess('Đổi mật khẩu thành công.');
     }
 
-    public function checkStatus($email)
+    public function checkStatus(Request $request)
     {
-        $user = User::where('email', $email)->first();
+        $token = $request->token;
+        $user = User::where('access_token', $token)->first();
         if (!$user) abort(404);
         return $user->is_active;
+    }
+
+    private function generateToken()
+    {
+        return Str::random(32);
     }
 }
