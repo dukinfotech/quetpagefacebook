@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             'is_active' => true,
             'is_admin' => true,
             'created_at' => now(),
+            'access_token' => Str::random(32),
             'updated_at' => now()
         ]);
     }
