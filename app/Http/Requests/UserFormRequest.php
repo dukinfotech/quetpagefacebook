@@ -18,6 +18,7 @@ class UserFormRequest extends FormRequest
             'name' => 'Tên khách hàng',
             'email' => 'Email',
             'phone' => 'Số điện thoại',
+            'password' => 'Mật khẩu',
             'note' => 'Ghi chú'
         ];
     }
@@ -41,6 +42,7 @@ class UserFormRequest extends FormRequest
             'name' => 'required|max:60',
             'email' => $emailRule,
             'phone' => 'nullable',
+            'password' => 'required',
             'note' => 'nullable',
             'password' => 'nullable'
         ];

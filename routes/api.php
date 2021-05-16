@@ -16,3 +16,4 @@ use App\Http\Controllers\UserController;
 */
 
 Route::post('/authenticate', [UserController::class, 'authenticate']);
+Route::get('/{email}/check-status', [UserController::class, 'checkStatus']);

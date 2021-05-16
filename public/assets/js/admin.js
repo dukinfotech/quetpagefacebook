@@ -35,6 +35,9 @@ $(document).ready(function() {
       },
       email: {
         required: true
+      },
+      password: {
+        required: true
       }
     },
     messages: {
@@ -46,6 +49,9 @@ $(document).ready(function() {
         required: 'Nhập email khách hàng.',
         email: 'Email không đúng định dạng.'
       },
+      password: {
+        required: 'Nhập mật khẩu.'
+      }
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {

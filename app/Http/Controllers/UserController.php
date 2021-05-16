@@ -23,8 +23,7 @@ class UserController extends Controller
     public function store(UserFormRequest $userFormRequest)
     {
         $validatedData = $userFormRequest->validated();
-        $password = Hash::make('12345678');
-        $validatedData['password'] = $password;
+        $validatedData['password'] = Hash::make($validatedData['password']);
         $user = new User($validatedData);
         $user->save();
 
@@ -89,7 +88,7 @@ class UserController extends Controller
             abort(401);
         }
 
-        return true;
+        return $email;
     }
 
     public function changePassword()
@@ -108,5 +107,12 @@ class UserController extends Controller
 
         User::find(auth()->user()->id)->update(['password'=> Hash::make($new_password)]);
         return back()->withSuccess('Đổi mật khẩu thành công.');
+    }
+
+    public function checkStatus($email)
+    {
+        $user = User::where('email', $email)->first();
+        if (!$user) abort(404);
+        return $user->is_active;
     }
 }

@@ -18,6 +18,10 @@
 				<label for="email">Email <span class="text-danger">*</span></label>
 				<input type="email" name="email" class="form-control" id="email" placeholder="Nhập email" value="{{ old('email') }}">
 			</div>
+			<div class="form-group">
+				<label for="password">Mật khẩu <span class="text-danger">*</span></label>
+				<input type="password" name="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
+			</div>
             <div class="form-group">
 				<label for="phone">Số điện thoại</label>
 				<input type="text" name="phone" class="form-control" id="phone" placeholder="Nhập số điện thoại" value="{{ old('phone') }}">
